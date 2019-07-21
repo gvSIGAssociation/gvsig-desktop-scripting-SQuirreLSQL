@@ -25,6 +25,31 @@ import javax.imageio.ImageIO
 from javax.swing import AbstractAction, Action
 from org.gvsig.scripting import ScriptingLocator
 
+GVSIG_JARS= 
+  #"gvSIG/extensiones/org.gvsig.geometry.app.jts/jts-1.13.jar",
+  #
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-api-1.3.0.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-ext-1.3.0.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-functions-1.3.0.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-network-1.3.0.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-utilities-1.3.0.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2network-1.2.4.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2spatial-1.2.4.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2spatial-api-1.2.4.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/cts-1.3.4.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/jackson-core-2.3.1.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/java-network-analyzer-0.1.6.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/jgrapht-core-1.0.1.jar",
+  #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/poly2tri-core-0.1.2.jar",
+  
+  "gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2-1.4.188.jar",
+  "gvSIG/extensiones/org.gvsig.postgresql.app.mainplugin/lib/postgresql-9.1-901.jdbc3.jar",
+  "gvSIG/extensiones/org.gvsig.oracle.app.mainplugin/lib/ojdbc-11.2.0.4.0.jar",
+  "gvSIG/extensiones/org.gvsig.mssqlserver.app.mainplugin/lib/sqlserver-jdbc-6.0.0.jar",
+  "gvSIG/extensiones/org.gvsig.mysql.app.mainplugin/lib/mysql-connector-java-6.0.6.jar",
+  "gvSIG/extensiones/org.gvsig.spatialite.app.mainplugin/lib/sqlite-jdbc-3.21.0.jar",
+)
+
 def getDataFolder():
   return ScriptingLocator.getManager().getDataFolder("squirrelsql").getAbsolutePath()
 
@@ -40,14 +65,9 @@ def launchSQuirreLSQL():
   CP = squirrelhome+"/squirrel-sql.jar"
   for fname in os.listdir(squirrelhome+"/lib"):
     CP += ":"+squirrelhome+"/lib/"+fname
-
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.postgresql.app.mainplugin/lib/postgresql-9.1-901.jdbc3.jar"
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2-1.4.188.jar"
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.oracle.app.mainplugin/lib/ojdbc-11.2.0.4.0.jar"
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.mssqlserver.app.mainplugin/lib/sqlserver-jdbc-6.0.0.jar"
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.mysql.app.mainplugin/lib/mysql-connector-java-6.0.6.jar"
-  CP += ":"+appfolder+"/gvSIG/extensiones/org.gvsig.spatialite.app.mainplugin/lib/sqlite-jdbc-3.21.0.jar"
-  
+  for jar in GVSIG_JARS:
+    CP += ":"+appfolder+"/"+jar
+ 
   cmd = [
     java,
     "-cp",CP,
