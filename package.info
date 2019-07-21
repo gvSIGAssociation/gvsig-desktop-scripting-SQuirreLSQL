@@ -1,0 +1,21 @@
+#
+#Sun Jul 21 22:23:16 CEST 2019
+owner=
+code=SQuirreLSQL
+java-version=j1_7
+operating-system=all
+description=SQuirreL SQL Client is a graphical SQL client written in Java that will allow you to view the structure of a JDBC compliant database, browse the data in tables, issue SQL commands etc.
+official=true
+type=Script
+web-url=
+version=3.9.1-1
+buildNumber=1
+owner-url=
+dependencies=
+sources-url=
+name=SQuirreLSQL
+gvSIG-version=2.5.0
+state=testing
+categories=
+model-version=1.0.1
+architecture=all
