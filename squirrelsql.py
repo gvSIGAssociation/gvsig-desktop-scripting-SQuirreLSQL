@@ -25,7 +25,7 @@ import javax.imageio.ImageIO
 from javax.swing import AbstractAction, Action
 from org.gvsig.scripting import ScriptingLocator
 
-GVSIG_JARS= 
+GVSIG_JARS= (
   #"gvSIG/extensiones/org.gvsig.geometry.app.jts/jts-1.13.jar",
   #
   #"gvSIG/extensiones/org.gvsig.h2spatial.app.mainplugin/lib/h2gis-api-1.3.0.jar",
@@ -78,7 +78,7 @@ def launchSQuirreLSQL():
     "--squirrel-home", squirrelhome,
     "--user-settings-dir", settings,
   ]
-  print cmd
+  #print cmd
   subprocess.call(cmd)
 
 
