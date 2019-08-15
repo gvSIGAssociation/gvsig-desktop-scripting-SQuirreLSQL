@@ -7,5 +7,5 @@ from addons.SQuirreLSQL import actions
 def main(*args):
   script.registerDataFolder("squirrelsql")
 
-  actions.selfRegister()
+  #actions.selfRegister()
   
